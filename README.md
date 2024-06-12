@@ -9,8 +9,9 @@ The main question we are interested in addressing is (question). We will perform
 
 Our dataset, spanning from January 2000 to July 2016, contains information about geographical location of the outages, regional climatic information, land-use characteristics, electricity consumption patterns and economic characteristics of the states affected by the outages. As defined by the Department of Energy, the major outages refer to those that impacted at least 50,000 customers or caused an unplanned firm load loss of at least 300 MW. The dataset, after simple formatting, contains a total of 1534 rows and 56 columns.  The key columns are listed below: 
 
-- cols
+- col 1
 - ...
+- col n
 
 # Data Cleaning and Exploratory Data Analysis
 Due to the large number of overall columns, we will only keep the columns which are relevant to our question. They are as follows: [cols]. 
