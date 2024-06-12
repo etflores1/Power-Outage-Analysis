@@ -1,4 +1,4 @@
-# Introduction
+# [project name]
 DSC 80 Spring 2024 Final Project
 <br> Authors: Adrian Apsay, Ethan Flores
 
