@@ -1,7 +1,6 @@
 # Introduction
 DSC 80 Spring 2024 Final Project
-<b>
-Authors: Adrian Apsay, Ethan Flores
+<br> Authors: Adrian Apsay, Ethan Flores
 
 # Introduction
 Welcome to our DSC 80 final project, where we aim to explore and gain insights focused on major power outage risks in the United States.  Over the past two decades, America has experienced numerous major outages, thus affecting millions of individuals causing numerous disruptions across the country. These outages highlight the urgent need for proactive measures to mitigate risks and enhance the resilience of our electrical grid.
