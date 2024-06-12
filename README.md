@@ -20,6 +20,12 @@ Due to the large number of overall columns, we will only keep the columns which 
 ## Univariate Analysis
 
 ## Bivariate Analysis
+<iframe
+  src="bivariate_graph_1.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 ## Interesting Aggregates
 
