@@ -170,7 +170,7 @@ We will then run a permutation test with 10,000 simulations to generate an empir
 The resulting p-value is 0.0, and with a significance level alpha of 0.05, we reject the null hypothesis. This means that, on average, the power outage duration for states with high economic productivity (measured by `UTIL.REALGSP`) is larger than states with low economic productivity. The plot below displays this empirical distribution along with the observed difference from our permutation test of 10,000 simulations.
 
 <iframe
-  src="empirical_distribution.html"
+  src="assets/empirical_distribution.html"
   width="800"
   height="600"
   frameborder="0"
@@ -217,9 +217,8 @@ Our final model showcased the following statistics:
 The final model (Random Forest with Transformers and GridSearch) is better than the baseline model primarily due to its improved generalization to new data, as evidenced by lower testing accuracy and higher precision and recall values. With the higher F1-score, indicating superior overall performance in classification tasks by maintaining a better balance between precision and recall.
     
 # Fairness Analysis
-In this section I analyzed the following hypothesis:
+In this section I decided to perform permutation tests on two separate groups from the`CAUSE.CATEGORY`, severe weather and intentional attack. Using their scores of precision, I aimed to test the following hypotheses.
 - Null Hypothesis: Our model is fair. Its precision for severe weather and intentional attack are roughly the same, and any differences are due to random chance.
 - Alternate Hypothesis: Our model is unfair. Its precision for intentional attack is lower than its precision for severe health.
 
-
-
+After performing the test, I obtained a p-value of `0.8878`. This indicates insufficient evidence to reject the null hypothesis that the model's precision for severe weather and intentional attacks is not significantly different. This suggests that any observed variations in precision between the two categories are likely due to random chance rather than systematic bias. Therefore, the model appears to be fair in its performance across both types of events based on the available data.
