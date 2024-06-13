@@ -45,18 +45,34 @@ The dataset cont They are as follows: [cols].
 
     
 # Framing a Prediction Problem
+From our analysis we can see that there wasn't a prominent relationship between duration/severity of power outages and the economic characteristics of each state. As a result, we have shifted our focus into if we are able to predict the cause of an outage based on the duration of the outage and its economic characteristics for the given state.
 
+We will employ a multiclass classification model to accurately predict the labels in the `CAUSE.CATEGORY`. At this moment, we have only analyzed and placed an emphasis on the economic features of the dataset along with the duration of each outage. As a result, they will be our main features.In addition, due to the great imbalances in the `CAUSE.CATEGORY` column, we will opt for our test statistic to be F1-score.
+
+| CAUSE.CATEGORY                | Count |
+|-------------------------------|-------|
+| severe weather                | 763   |
+| intentional attack            | 418   |
+| system operability disruption | 127   |
+| public appeal                 | 69    |
+| equipment failure             | 60    |
+| fuel supply emergency         | 51    |
+| islanding                     | 46    |
     
 # Basline Model
+For our multiclass classification problem, we will opt for a Random Forest classifier. This model will be ran on the following features: `CAUSE.CATEGORY`,`OUTAGE.DURATION`, `PC.REALGSP.STATE`, `PC.REALGSP.USA`,`PC.REALGSP.REL`,`PC.REALGSP.CHANGE`, `UTIL.REALGSP`, `TOTAL.REALGSP`, `UTIL.CONTRI`, `PI.UTIL.OFUSA`. Outside of the `CAUSE.CATEGORY` column (its nominal), the rest of the columns are quantitative. Therefore no necessary encodings are necessary for our baseline model. In addition, because the `CAUSE.CATEGORY` is our response variable there is no need to encode it as well.
 
+Our baseline model showcased the following statistics:
+
+| Model                          | Training Accuracy | Testing Accuracy | Precision | Recall | F1-Score |
+|--------------------------------|-------------------|------------------|-----------|--------|----------|
+| Random Forest, Baseline Model  | 0.99              | 0.68             | 0.67      | 0.68   | 0.68     |
+
+The baseline model obtained a training accuracy of 99%, demonstrating strong performance on the training data. However, its testing accuracy dropped to 68%, which suggests overfitting and a need for improved generalization to new data. Despite these challenges, the model maintains a balanced F1-score of 0.68, indicating its capability to effectively balance precision and recall in classification tasks. While the score is solid, there is much to be improved on.
     
 # Final Model
 
     
 # Fairness Analysis
 
-
-~~~~~~~~~
-null: The mean outage duration for power outages caused by "cold" weather is equal to the mean outage duration for power outages caused by "warm" weather.
-alternative: the mean outage duration for power outages caused by "cold" weather is different from the mean outage duration for power outages caused by "warm" weather.
 
