@@ -71,7 +71,17 @@ Our baseline model showcased the following statistics:
 The baseline model obtained a training accuracy of 99%, demonstrating strong performance on the training data. However, its testing accuracy dropped to 68%, which suggests overfitting and a need for improved generalization to new data. Despite these challenges, the model maintains a balanced F1-score of 0.68, indicating its capability to effectively balance precision and recall in classification tasks. While the score is solid, there is much to be improved on.
     
 # Final Model
+In our final model, I have decided to create 4 new features which is the alteration of `PC.REALGSP.STATE`, `PC.REALGSP.USA`, `PC.REALGSP.REL`, and `PC.REALGSP.CHANGE` by transforming them through a StandardScaler(). Economic indicators like these are likely to have different scales and units. Standardizing these features using StandardScaler ensures that they are all transformed to have a mean of 0 and a standard deviation of 1. This makes the interpretation of their coefficients more straightforward and prevents features with larger scales from dominating the model.
 
+The modeling algorithm I chose to tune my Random Forest was `GridSearchCV`. From this, we saw that the best performing hyperparameters was: `Best Parameters: {'clf__max_depth': 50, 'clf__min_samples_leaf': 2, 'clf__min_samples_split': 10, 'clf__n_estimators': 50}`
+
+Our final model showcased the following statistics:
+| Model                                                   | Training Accuracy | Testing Accuracy | Precision | Recall | F1-Score |
+|---------------------------------------------------------|-------------------|------------------|-----------|--------|----------|
+| Random Forest, Baseline Model                            | 1.0               | 0.70             | 0.67      | 0.70   | 0.68     |
+| Random Forest, Transformers with GridSearch, Final Model | 0.9               | 0.73             | 0.71      | 0.73   | 0.71     |
+
+The final model (Random Forest with Transformers and GridSearch) is better than the baseline model primarily due to its improved generalization to new data, as evidenced by lower testing accuracy and higher precision and recall values. With the higher F1-score, indicating superior overall performance in classification tasks by maintaining a better balance between precision and recall.
     
 # Fairness Analysis
 
