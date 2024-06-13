@@ -152,6 +152,44 @@ Given this pivot table, we garner some interesting findings. We see that a high 
 From the dataset, CUSTOMERS.AFFECTED could potentially be Not Missing at Random (NMAR). The reporting of the number of customers affected by power outages might vary depending on the severity and public visibility of the outage event. Larger-scale outages affecting a substantial number of customers are likely to receive more attention and thorough reporting compared to smaller incidents. Understanding the factors influencing the reporting of CUSTOMERS.AFFECTED, such situational context (operation policies, public relation considerations, etc.) during outage events, would provide clarity on whether its missingness is NMAR or influenced by other observable factors.
 
 ## Missingness Dependency
+For missingness dependency, we will be testing `CAUSE.CATEGORY` on missingness values of the `OUTAGE.DURATION` column.
+
+We will propose the following hypotheses:
+
+Null Hypothesis (H0): The `CAUSE.CATEGORY` is not dependent on the missingness values of the `OUTAGE.DURATION` column, maintaining the same distribution with or without missing outage duration values.
+
+Alternate Hypothesis (H1): The `CAUSE.CATEGORY` is dependent on the missingness values of the `OUTAGE.DURATION` column, resulting in a different distribution with and without missing outage duration values (MAR).
+
+We can run Total Variation Distance to test these hypotheses, as both of these columns are categorical. We will first create a distribution of cause categories as its values are the missingness of outage duration. We will then create a pivot table, and use that to help run TVD.
+<iframe
+  src="cause_cat_dist.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+Here is a pivot table we created:
+
+| CAUSE.CATEGORY                     | OUTAGE.DURATION_Missing = False | OUTAGE.DURATION_Missing = True |
+|------------------------------------|---------------------------------|--------------------------------|
+| equipment failure                  | 0.92                            | 0.08                           |
+| fuel supply emergency              | 0.75                            | 0.25                           |
+| intentional attack                 | 0.96                            | 0.04                           |
+| islanding                          | 0.96                            | 0.04                           |
+| public appeal                      | 1.00                            | 0.00                           |
+| severe weather                     | 0.98                            | 0.02                           |
+| system operability disruption      | 0.97                            | 0.03                           |
+
+
+Now, we run a permutation test on a function we created: `def permutation_test_missingness(df, column, dependent_column, N=1000)`
+<iframe
+  src="missingness_tvd.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+The observed TVD is 0.46 with a p-value of 0.003, meaning that we reject the null hypothesis in favor of the alternative. That is, the `CAUSE.CATEGORY` is dependent on the missingness values of the `OUTAGE.DURATION` column, resulting in a different distribution with and without missing outage duration values (MAR).
 
     
 # Hypothesis Testing
