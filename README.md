@@ -248,6 +248,7 @@ In our final model, I have decided to create 4 new features which is the alterat
 The modeling algorithm I chose to tune my Random Forest was `GridSearchCV`. From this, we saw that the best performing hyperparameters was: `Best Parameters: {'clf__max_depth': 50, 'clf__min_samples_leaf': 2, 'clf__min_samples_split': 10, 'clf__n_estimators': 50}`
 
 Our final model showcased the following statistics:
+
 | Model                                                   | Training Accuracy | Testing Accuracy | Precision | Recall | F1-Score |
 |---------------------------------------------------------|-------------------|------------------|-----------|--------|----------|
 | Random Forest, Baseline Model                            | 1.0               | 0.70             | 0.67      | 0.70   | 0.68     |
