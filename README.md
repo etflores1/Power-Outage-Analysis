@@ -149,6 +149,7 @@ Given this pivot table, we garner some interesting findings. We see that a high 
 # Assessment of Missingness
 
 ## NMAR Analysis
+From the dataset, CUSTOMERS.AFFECTED could potentially be Not Missing at Random (NMAR). The reporting of the number of customers affected by power outages might vary depending on the severity and public visibility of the outage event. Larger-scale outages affecting a substantial number of customers are likely to receive more attention and thorough reporting compared to smaller incidents. Understanding the factors influencing the reporting of CUSTOMERS.AFFECTED, such situational context (operation policies, public relation considerations, etc.) during outage events, would provide clarity on whether its missingness is NMAR or influenced by other observable factors.
 
 ## Missingness Dependency
 
