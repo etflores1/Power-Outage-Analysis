@@ -162,7 +162,7 @@ Alternate Hypothesis (H1): The `CAUSE.CATEGORY` is dependent on the missingness 
 
 We can run Total Variation Distance to test these hypotheses, as both of these columns are categorical. We will first create a distribution of cause categories as its values are the missingness of outage duration. We will then create a pivot table, and use that to help run TVD.
 <iframe
-  src="cause_cat_dist.html"
+  src="assets/cause_cat_dist.html"
   width="800"
   height="600"
   frameborder="0"
@@ -183,7 +183,7 @@ Here is a pivot table we created:
 
 Now, we run a permutation test on a function we created: `def permutation_test_missingness(df, column, dependent_column, N=1000)`
 <iframe
-  src="missingness_tvd.html"
+  src="assets/missingness_tvd.html"
   width="800"
   height="600"
   frameborder="0"
